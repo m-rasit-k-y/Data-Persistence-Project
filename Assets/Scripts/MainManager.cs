@@ -72,5 +72,11 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+
+        if (m_Points > PlayerPrefs.GetInt("Score"))
+        {
+            PlayerPrefs.SetInt("Score", m_Points);
+            PlayerPrefs.SetString("PlayerName", PlayerPrefs.GetString("PlayerNameMenu"));
+        }
     }
 }
